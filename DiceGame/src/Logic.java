@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Logic {
-    private int round=0;
+    private int round = 0;
     private int winningScore = 40;
     int[] scoreList;
     int pNum = GameController.getPlayerNum();
     Dice dice = new Dice();
+    int winnerID=5;
 
     public Logic() {
         game();
@@ -18,11 +19,13 @@ public class Logic {
 
 
     public boolean gameOver() {
-        for (int i = 0; i < pNum; i++)
+       /* for (int i = 0; i < pNum; i++)
             if (scoreList[i] >= winningScore) {
+
                 return true;
             }
-        return false;
+        return false;*/
+       return false;
     }
 
 
@@ -32,20 +35,21 @@ public class Logic {
         do {
 
             round++;
-            System.out.println(round+". round");
+            System.out.println(round + ". round");
 
             for (int i = 0; i < pNum; i++) {
                 dice.roll();
                 scoreList[i] += dice.getTotal();
-                System.out.println(GameController.getPlayerNames()[i]+" :"+scoreList[i]);
-                if (gameOver()) {
-                    print(TextClss.winGameMesg + GameController.getPlayerNames()[i]);
-                    break;
-                }
+                System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
+            }
+            if (gameOver()) {
+                print(TextClss.winGameMesg + GameController.getPlayerNames()[round]);
+                break;
             }
             print(TextClss.sepGameLine);
         } while (!gameOver());
     }
+
     public void print(String string) {
         System.out.println(string);
     }
