@@ -8,28 +8,42 @@ import java.util.Scanner;
 public class Logic {
     private int round = 0;
     private int winningScore = 40;
-    int[] scoreList;
-    int pNum = GameController.getPlayerNum();
-    Dice dice = new Dice();
-    int winnerID=5;
-
+    private int[] scoreList;
+    private int pNum = GameController.getPlayerNum();
+    private Dice dice = new Dice();
+  
     public Logic() {
         game();
     }
 
 
-    public boolean gameOver() {
-       /* for (int i = 0; i < pNum; i++)
+    private boolean gameOver() {
+        for (int i = 0; i < pNum; i++) {
             if (scoreList[i] >= winningScore) {
 
                 return true;
+
             }
-        return false;*/
-       return false;
+        }
+        return false;
+    }
+
+    private void announceTheWinner() {
+        int index = 0;
+        for ( int i = 1; i < scoreList.length; i++ )
+        {
+            if ( scoreList[i] > scoreList[index] )
+                index = i;
+        }
+       /* Dette virker også
+        for (int i = 0; i < scoreList.length; i++) {
+            index = scoreList[i] > scoreList[index] ? i : index;
+        }*/
+        print(TextClss.winGameMesg + GameController.getPlayerNames()[index]);
     }
 
 
-    public void game() {
+    private void game() {
         scoreList = new int[pNum];
 
         do {
@@ -42,15 +56,13 @@ public class Logic {
                 scoreList[i] += dice.getTotal();
                 System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
             }
-            if (gameOver()) {
-                print(TextClss.winGameMesg + GameController.getPlayerNames()[round]);
-                break;
-            }
+            gameOver();
             print(TextClss.sepGameLine);
         } while (!gameOver());
+        announceTheWinner();
     }
 
-    public void print(String string) {
+    private void print(String string) {
         System.out.println(string);
     }
 }
