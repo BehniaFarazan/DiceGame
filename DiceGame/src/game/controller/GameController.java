@@ -30,7 +30,7 @@ public class GameController {
         Scanner input = new Scanner(System.in);
         playerNum = input.nextInt();
         playerNames = new String[playerNum];
-        System.out.println("The player number is " + playerNum);
+        print(TextClss.playerNumber(playerNum));
         print(TextClss.sepMesgLine);
         int counter = 0;
         for (int i = 0; i < playerNum; i++) {

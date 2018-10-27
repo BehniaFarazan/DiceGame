@@ -47,12 +47,13 @@ public class Logic {
         do {
 
             round++;
-            System.out.println(round + ". round");
+            print(TextClss.roundShow(round));
 
             for (int i = 0; i < pNum; i++) {
                 dice.roll();
                 scoreList[i] += dice.getTotal();
-                System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
+               // System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
+                print(TextClss.scoreShow(GameController.getPlayerNames()[i]  , scoreList[i]));
             }
             gameOver();
             print(TextClss.sepGameLine);
