@@ -23,29 +23,28 @@ public class InputValidator {
 
 
     public void welcomeMs() {
-       try {
-           print(TextClss.welcMesg);
-
-        print(TextClss.playernumMesg);
-        Scanner input = new Scanner(System.in);
-        playerNum = input.nextInt();
-        playerNames = new String[playerNum];
-        print(TextClss.playerNumber(playerNum));
-        print(TextClss.sepMesgLine);
-        int counter = 0;
-        for (int i = 0; i < playerNum; i++) {
-            counter++;
-            print(TextClss.nameThePlayer(counter));
-            Scanner cs = new Scanner(System.in);
-            String name = cs.next();
-            playerNames[i] = name;
+        try {
+            print(TextClss.welcMesg);
+            print(TextClss.playernumMesg);
+            Scanner scanner = new Scanner(System.in);
+            playerNum = scanner.nextInt();
+            playerNames = new String[playerNum];
+            print(TextClss.playerNumber(playerNum));
             print(TextClss.sepMesgLine);
-        }
+            int counter = 0;
+            for (int i = 0; i < playerNum; i++) {
+                counter++;
+                print(TextClss.nameThePlayer(counter));
+           //     Scanner cs = new Scanner(System.in);
+                String name = scanner.next();
+                playerNames[i] = name;
+                print(TextClss.sepMesgLine);
+            }
 
-        }catch (Exception exp){
-           print("Forkert input");
-           welcomeMs();
-       }
+        } catch (Exception exp) {
+            print("Forkert input");
+            welcomeMs();
+        }
     }
 
 
