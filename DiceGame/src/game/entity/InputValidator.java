@@ -35,7 +35,6 @@ public class InputValidator {
             for (int i = 0; i < playerNum; i++) {
                 counter++;
                 print(TextClss.nameThePlayer(counter));
-           //     Scanner cs = new Scanner(System.in);
                 String name = scanner.next();
                 playerNames[i] = name;
                 print(TextClss.sepMesgLine);
@@ -45,19 +44,6 @@ public class InputValidator {
             print("Forkert input");
             welcomeMs();
         }
-    }
-
-
-    public static void inputValidator() {
-     /*  do {
-           System.out.println("Please enter a positive number!");
-           while (!sc.hasNextInt()) {
-               System.out.println("That's not a number!");
-               sc.next(); // this is important!
-           }
-           number = sc.nextInt();
-       } while (number <= 0);
-       System.out.println("Thank you! Got " + number);*/
     }
 
     public void print(String string) {

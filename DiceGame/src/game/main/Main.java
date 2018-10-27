@@ -1,6 +1,7 @@
 package game.main;
 
 import game.controller.GameController;
+import game.entity.Logic;
 
 /*
 This game is made by Behnia Farazan

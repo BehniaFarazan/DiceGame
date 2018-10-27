@@ -8,6 +8,7 @@ public class Logic {
     private int[] scoreList;
     private int pNum = InputValidator.getPlayerNum();
     private Dice dice = new Dice();
+    private int winnerScore;
 
     public Logic() {
         game();
@@ -26,14 +27,27 @@ public class Logic {
     private void announceTheWinner() {
         int index = 0;
         for (int i = 1; i < scoreList.length; i++) {
-            if (scoreList[i] > scoreList[index])
+            if (scoreList[i] > scoreList[index]) {
                 index = i;
+            }
+        }
+        print(TextClss.winGameMesg + InputValidator.getPlayerNames()[index]);
+        scoreList[index] = winnerScore;
+        int count = 0;
+        for (int i = 1; i < scoreList.length; i++) {
+            if (scoreList[i] == winnerScore) {
+                count++;
+            }
+
+        }
+        if (count > 1) {
+            print("There is a tie");
         }
        /* Dette virker også
         for (int i = 0; i < scoreList.length; i++) {
             index = scoreList[i] > scoreList[index] ? i : index;
         }*/
-        print(TextClss.winGameMesg + InputValidator.getPlayerNames()[index]);
+
     }
 
 

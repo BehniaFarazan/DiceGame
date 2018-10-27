@@ -13,12 +13,14 @@ public class TextClss {
     }
 
     public static String playerNumber(int playerNum) {
-        return "The player number is " + playerNum ;
+        return "The player number is " + playerNum;
     }
+
     public static String roundShow(int round) {
-        return round + ". round" ;
+        return round + ". round";
     }
-    public static String scoreShow(String playerNames , int scoreList) {
-        return playerNames + " :" + scoreList  ;
+
+    public static String scoreShow(String playerNames, int scoreList) {
+        return playerNames + " :" + scoreList;
     }
 }
