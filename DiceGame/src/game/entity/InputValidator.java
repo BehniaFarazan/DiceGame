@@ -2,12 +2,10 @@ package game.entity;
 
 import game.boundary.TextClss;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputValidator {
-    Scanner sc = new Scanner(System.in);
-    boolean bError = true;
+
     public InputValidator() {
         welcomeMs();
     }
