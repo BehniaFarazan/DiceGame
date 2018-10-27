@@ -2,10 +2,10 @@ package game.controller;
 
 import game.boundary.TextClss;
 import game.entity.Logic;
+
 import java.util.Scanner;
 
 public class GameController {
-
 
 
     public GameController() {
@@ -35,7 +35,7 @@ public class GameController {
         int counter = 0;
         for (int i = 0; i < playerNum; i++) {
             counter++;
-           print(TextClss.nameThePlayer(counter));
+            print(TextClss.nameThePlayer(counter));
             Scanner cs = new Scanner(System.in);
             String name = cs.next();
             playerNames[i] = name;

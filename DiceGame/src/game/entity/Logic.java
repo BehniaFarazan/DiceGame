@@ -10,7 +10,7 @@ public class Logic {
     private int[] scoreList;
     private int pNum = GameController.getPlayerNum();
     private Dice dice = new Dice();
-  
+
     public Logic() {
         game();
     }
@@ -29,9 +29,8 @@ public class Logic {
 
     private void announceTheWinner() {
         int index = 0;
-        for ( int i = 1; i < scoreList.length; i++ )
-        {
-            if ( scoreList[i] > scoreList[index] )
+        for (int i = 1; i < scoreList.length; i++) {
+            if (scoreList[i] > scoreList[index])
                 index = i;
         }
        /* Dette virker også
