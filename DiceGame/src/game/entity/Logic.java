@@ -1,14 +1,12 @@
 package game.entity;
 
-import game.controller.GameController;
-import game.entity.Dice;
 import game.boundary.TextClss;
 
 public class Logic {
     private int round = 0;
     private int winningScore = 40;
     private int[] scoreList;
-    private int pNum = GameController.getPlayerNum();
+    private int pNum = InputValidator.getPlayerNum();
     private Dice dice = new Dice();
 
     public Logic() {
@@ -19,9 +17,7 @@ public class Logic {
     private boolean gameOver() {
         for (int i = 0; i < pNum; i++) {
             if (scoreList[i] >= winningScore) {
-
                 return true;
-
             }
         }
         return false;
@@ -37,7 +33,7 @@ public class Logic {
         for (int i = 0; i < scoreList.length; i++) {
             index = scoreList[i] > scoreList[index] ? i : index;
         }*/
-        print(TextClss.winGameMesg + GameController.getPlayerNames()[index]);
+        print(TextClss.winGameMesg + InputValidator.getPlayerNames()[index]);
     }
 
 
@@ -52,8 +48,8 @@ public class Logic {
             for (int i = 0; i < pNum; i++) {
                 dice.roll();
                 scoreList[i] += dice.getTotal();
-               // System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
-                print(TextClss.scoreShow(GameController.getPlayerNames()[i]  , scoreList[i]));
+                // System.out.println(GameController.getPlayerNames()[i] + " :" + scoreList[i]);
+                print(TextClss.scoreShow(InputValidator.getPlayerNames()[i], scoreList[i]));
             }
             gameOver();
             print(TextClss.sepGameLine);

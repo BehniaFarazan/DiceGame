@@ -10,8 +10,7 @@ The dicegame is about to rolling the dice and reaching the winner-score (default
 public class Main {
 
     public static void main(String[] args) {
-       GameController gm = new GameController();
-//test commit
-    
+       GameController gameController = new GameController();
+
     }
 }
