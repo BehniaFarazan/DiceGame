@@ -6,8 +6,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputValidator {
+    Scanner sc = new Scanner(System.in);
+    boolean bError = true;
     public InputValidator() {
-    welcomeMs();
+        welcomeMs();
     }
 
     public static int getPlayerNum() {
@@ -23,7 +25,9 @@ public class InputValidator {
 
 
     public void welcomeMs() {
-        print(TextClss.welcMesg);
+       try {
+           print(TextClss.welcMesg);
+
         print(TextClss.playernumMesg);
         Scanner input = new Scanner(System.in);
         playerNum = input.nextInt();
@@ -39,6 +43,11 @@ public class InputValidator {
             playerNames[i] = name;
             print(TextClss.sepMesgLine);
         }
+
+        }catch (Exception exp){
+           print("Forkert input");
+           welcomeMs();
+       }
     }
 
 
