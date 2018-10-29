@@ -4,7 +4,7 @@ import game.boundary.TextClss;
 
 public class Logic {
     private int round = 0;
-    private int winningScore = 40;
+    private int winningScore = 1;
     private int[] scoreList;
     private int pNum = InputValidator.getPlayerNum();
     private Dice dice = new Dice();
@@ -24,30 +24,32 @@ public class Logic {
         return false;
     }
 
-    private void announceTheWinner() {
+    private void scoreCheck() {
         int index = 0;
-        for (int i = 1; i < scoreList.length; i++) {
+        for (int i = 0; i < scoreList.length; i++) {
             if (scoreList[i] > scoreList[index]) {
                 index = i;
             }
         }
-        print(TextClss.winGameMesg + InputValidator.getPlayerNames()[index]);
-        scoreList[index] = winnerScore;
-        int count = 0;
-        for (int i = 1; i < scoreList.length; i++) {
-            if (scoreList[i] == winnerScore) {
-                count++;
-            }
-
-        }
-        if (count > 1) {
+        winnerScore = scoreList[index];
+        if (isTie()) {
             print("There is a tie");
+        } else {
+            //announceTheWinner();
+            print(TextClss.winGameMesg + InputValidator.getPlayerNames()[index]);
         }
-       /* Dette virker også
+    }
+
+    private void announceTheWinner() {
+
+
+
+
+        /* Dette virker også
+        int index = 0;
         for (int i = 0; i < scoreList.length; i++) {
             index = scoreList[i] > scoreList[index] ? i : index;
         }*/
-
     }
 
 
@@ -68,7 +70,22 @@ public class Logic {
             gameOver();
             print(TextClss.sepGameLine);
         } while (!gameOver());
-        announceTheWinner();
+        scoreCheck();
+
+
+    }
+
+    private boolean isTie() {
+        int count = 0;
+        for (int i = 0; i < scoreList.length; i++) {
+            if (scoreList[i] == winnerScore) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            return true;
+        }
+        return false;
     }
 
     private void print(String string) {
