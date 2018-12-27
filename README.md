@@ -1,2 +1,2 @@
 # DiceGame
-Fun Project
+Project
