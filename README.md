@@ -8,7 +8,7 @@ A randomized dice game where the first player that reaches the goal amount of po
 
 ## Status
 
-Currently in development.
+No further development.
 
 ## Meta
 
